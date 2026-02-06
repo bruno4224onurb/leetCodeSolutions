@@ -1,0 +1,22 @@
+class Solution:
+    def reverse(self, x: int) -> int:
+        LIMIT_LOW = -2**31
+        LIMIT_HIGH = 2**31 - 1
+        l = [ d for d in str(x)]
+        r = []
+        if l[0] == "-":
+            r.append(l[0])
+            for i in reversed(range(1, len(l))):
+                r.append(l[i])
+        else:
+            for i in reversed(range(0, len(l))):
+                r.append(l[i])
+        x = ""
+        for i in r:
+            x += i
+        if int(x)<LIMIT_LOW or int(x)>LIMIT_HIGH:
+            return 0
+        return int(x) 
+
+
+        
