@@ -16,14 +16,14 @@ class Solution(object):
         "I": 1
         }
         inte = 0
-        c=0
-        while c < len(s):
-            if c+1 < len(s) and (s[c]+s[c+1]) in roman:
-                inte += roman[(s[c]+s[c+1])]
-                c += 2
+        prev = 0
+        for c in reversed(s):
+            curr = roman[c]
+            if curr < prev:
+                inte -= curr
             else:
-                inte += roman[s[c]]
-                c += 1
+                inte += curr
+            prev = curr
         return inte
         
         
